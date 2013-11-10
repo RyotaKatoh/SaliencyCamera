@@ -11,10 +11,15 @@
 @implementation UIImage (Utility)
 
 #pragma comment リサイズ関数を記述
-- (UIImage *)resize:(CGRect)targetFrame{
-
+- (UIImage *)resize:(CGRect)rect{
+    UIGraphicsBeginImageContext(rect.size);
     
-    return self;
+    [self drawInRect:rect];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
     
 }
 

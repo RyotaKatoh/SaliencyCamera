@@ -89,7 +89,7 @@
     NSError *error = nil;
     
     //AVCaptureSession *session = [AVCaptureSession new];
-    AVCaptureSession *session = [AVCaptureSession new];
+    session = [AVCaptureSession new];
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         [session setSessionPreset:AVCaptureSessionPreset640x480];
     else
@@ -247,21 +247,11 @@ bail:
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-//    UIImage *libraryImage;
-//    
-//    libraryImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
-//    
-//    float widthPer = libraryImage.size.width / previewView.frame.size.width;
-//    float heightPer= libraryImage.size.height / previewView.frame.size.height;
-//    float resizePer= max(widthPer, heightPer);
-//    
-//    CGSize sz = CGSizeMake(libraryImage.size.width*resizePer,libraryImage.size.height*resizePer);
-//    UIGraphicsBeginImageContext(sz);
-//    [libraryImage drawInRect:CGRectMake(0, 0, sz.width, sz.height)];
-//    photoLibraryImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
 
     photoLibraryImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    photoLibraryImage = [photoLibraryImage resize:imageView.frame];
+    
     isSelectedOpenPhotoLibrary = YES;
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -272,8 +262,6 @@ bail:
         
         isSelectedOpenCamera = false;
     }
-    
-//    [libraryImage release];
     
     [self performSegueWithIdentifier:@"takePhoto" sender:self];
 }

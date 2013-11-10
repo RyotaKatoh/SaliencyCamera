@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "resultViewController.h"
+#import "UIImage+Utility.h"
 
 #include "Saliency.h"
 
@@ -17,6 +18,7 @@
     BOOL isUsingFrontFacingCamera;
     BOOL isSelectedOpenCamera;
     BOOL isSelectedOpenPhotoLibrary;
+    AVCaptureSession *session;
     AVCaptureStillImageOutput *stillImageOutput;
     AVCaptureVideoPreviewLayer *previewLayer;
     AVCaptureVideoDataOutput *videoDataOutput;

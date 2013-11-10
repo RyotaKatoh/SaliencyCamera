@@ -93,10 +93,17 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xJl-J7-FZY"/>
+                    <navigationItem key="navigationItem" id="xJl-J7-FZY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bGe-Z3-rhL">
+                            <connections>
+                                <action selector="saveImage:" destination="1oj-G7-IC1" id="Non-6a-7Pn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="W7j-fh-Z1X" id="W2B-16-bWI"/>
                         <outlet property="resultImageView" destination="Lho-lO-Rk4" id="oEB-Fc-UHx"/>
+                        <outlet property="saveImageButton" destination="bGe-Z3-rhL" id="Ks8-GS-aE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyr-VX-dLr" userLabel="First Responder" sceneMemberID="firstResponder"/>

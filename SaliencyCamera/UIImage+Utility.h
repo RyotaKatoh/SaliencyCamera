@@ -10,6 +10,6 @@
 
 @interface UIImage (Utility)
 
-- (UIImage *)resize:(CGRect)targetFrame;
+- (UIImage *)resize:(CGRect)rect;
 
 @end

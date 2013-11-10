@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #include "Saliency.h"
+#import "UIImage+Utility.h"
 
 @interface resultViewController : UIViewController{
 
+    UIImage *saliencyImage;
 @public
     BOOL fromCamera;
 }
@@ -18,4 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) UIImage *resultImage;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveImageButton;
+
+
+- (IBAction)saveImage:(id)sender;
 @end

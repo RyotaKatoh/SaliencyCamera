@@ -16,6 +16,7 @@
 @synthesize resultImageView;
 @synthesize resultImage;
 @synthesize activityIndicator;
+@synthesize saveImageButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,12 +31,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    saveImageButton.enabled = NO;
     [self showActivityIndicator];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self runCreatingSaliencyMap];
+    
+        [self runCreatingSaliencyMap];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,23 +49,29 @@
 }
 
 - (void)runCreatingSaliencyMap{
-    UIImage *saliencyImage;
     
     Saliency saliency;
     saliencyImage = saliency.getSaliencyMap(resultImage);
     
+    NSLog(@"saliencyImage: %f, %f",saliencyImage.size.width, saliencyImage.size.height);
+    
     if(fromCamera){
-        UIImage *rotateImage;
-        rotateImage = [UIImage imageWithCGImage:saliencyImage.CGImage scale:saliencyImage.scale orientation:UIImageOrientationRight];
-        resultImageView.image = rotateImage;
+        //UIImage *rotateImage;
+        saliencyImage = [UIImage imageWithCGImage:saliencyImage.CGImage scale:saliencyImage.scale orientation:UIImageOrientationRight];
+        
+        saliencyImage = [saliencyImage resize:resultImageView.frame];
+        
+        resultImageView.image = saliencyImage;
     }
     else{
         
         resultImageView.image = saliencyImage;
     }
     [self hideActivityIndicator];
-    
+
 }
+
+#pragma mark ActivityIndicator
 
 - (void)showActivityIndicator{
 
@@ -74,6 +84,93 @@
 - (void)hideActivityIndicator{
     [activityIndicator stopAnimating];
     activityIndicator.hidden = YES;
+    saveImageButton.enabled = YES;
 }
 
+#pragma mark saveImage
+
+- (BOOL)isPhotoAccessEnableWithIsShowAlert: (BOOL)isShowAlert{
+
+    ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+    
+    BOOL isAuthorization = NO;
+    
+    switch (status) {
+        case ALAuthorizationStatusAuthorized:
+            isAuthorization = YES;
+            break;
+            
+        case ALAuthorizationStatusNotDetermined:
+            isAuthorization = YES;
+            break;
+            
+        case ALAuthorizationStatusRestricted:
+            isAuthorization = NO;
+            
+            if(isShowAlert){
+            
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"error" message:@"Access to Photo Library is not authorized." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+                [alertView show];
+            }
+            
+            break;
+            
+        case ALAuthorizationStatusDenied:
+            isAuthorization = NO;
+            if(isShowAlert){
+                
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"error" message:@"Access to Photo Library is not authorized." delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alertView show];
+            }
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    return isAuthorization;
+}
+
+- (void)saveImageToPhotoLibrary:(UIImage *)image{
+
+    BOOL isPhotoAccessEnable = [self isPhotoAccessEnableWithIsShowAlert:YES];
+    
+    if(isPhotoAccessEnable){
+    
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
+        
+        
+        [library writeImageToSavedPhotosAlbum:image.CGImage orientation:(ALAssetOrientation)image.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error){
+        
+            NSLog(@"URL:%@",assetURL);
+            NSLog(@"error:%@",error);
+            
+            ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+            
+            if(status == ALAuthorizationStatusDenied){
+            
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"error" message:@"Access to Photo Library is not authorized." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+            }
+            
+            else{
+            
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alertView show];
+                
+            }
+        }];
+    }
+    
+}
+
+#pragma mark IBAction
+
+- (IBAction)saveImage:(id)sender {
+    [self saveImageToPhotoLibrary:saliencyImage];
+
+}
 @end
