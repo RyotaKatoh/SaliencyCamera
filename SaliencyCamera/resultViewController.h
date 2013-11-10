@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "Saliency.h"
 
-@interface resultViewController : UIViewController
+@interface resultViewController : UIViewController{
 
+@public
+    BOOL fromCamera;
+}
+
+@property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) UIImage *resultImage;
 @end

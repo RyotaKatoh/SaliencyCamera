@@ -14,13 +14,24 @@
 		C13934FA182DF8370022A5FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C13934F9182DF8370022A5FC /* main.m */; };
 		C13934FE182DF8370022A5FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C13934FD182DF8370022A5FC /* AppDelegate.m */; };
 		C1393501182DF8370022A5FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C13934FF182DF8370022A5FC /* Main.storyboard */; };
-		C1393504182DF8370022A5FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1393503182DF8370022A5FC /* ViewController.m */; };
+		C1393504182DF8370022A5FC /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393503182DF8370022A5FC /* ViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C1393506182DF8370022A5FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1393505182DF8370022A5FC /* Images.xcassets */; };
 		C139350D182DF8370022A5FC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C139350C182DF8370022A5FC /* XCTest.framework */; };
 		C139350E182DF8370022A5FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13934ED182DF8370022A5FC /* Foundation.framework */; };
 		C139350F182DF8370022A5FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13934F1182DF8370022A5FC /* UIKit.framework */; };
 		C1393517182DF8370022A5FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1393515182DF8370022A5FC /* InfoPlist.strings */; };
 		C1393519182DF8370022A5FC /* SaliencyCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1393518182DF8370022A5FC /* SaliencyCameraTests.m */; };
+		C1393525182DF9820022A5FC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393524182DF9820022A5FC /* opencv2.framework */; };
+		C1393531182DFD430022A5FC /* ImageConv.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393528182DFD430022A5FC /* ImageConv.mm */; };
+		C1393532182DFD430022A5FC /* Saliency.mm in Sources */ = {isa = PBXBuildFile; fileRef = C139352A182DFD430022A5FC /* Saliency.mm */; };
+		C1393533182DFD430022A5FC /* segment-image.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393530182DFD430022A5FC /* segment-image.mm */; };
+		C1393545182E08A80022A5FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393544182E08A80022A5FC /* AVFoundation.framework */; };
+		C1393547182E08D10022A5FC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393546182E08D10022A5FC /* CoreImage.framework */; };
+		C1393549182E106E0022A5FC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393548182E106E0022A5FC /* CoreMedia.framework */; };
+		C139354C182E12960022A5FC /* resultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C139354B182E12960022A5FC /* resultViewController.mm */; };
+		C139354F182E1E730022A5FC /* camera_30.png in Resources */ = {isa = PBXBuildFile; fileRef = C139354E182E1E730022A5FC /* camera_30.png */; };
+		C1393551182E21A00022A5FC /* rotate_camera2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = C1393550182E21A00022A5FC /* rotate_camera2_30.png */; };
+		C1393556182F46D20022A5FC /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = C1393555182F46D20022A5FC /* UIImage+Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +57,33 @@
 		C13934FD182DF8370022A5FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C1393500182DF8370022A5FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1393502182DF8370022A5FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C1393503182DF8370022A5FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C1393503182DF8370022A5FC /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		C1393505182DF8370022A5FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C139350B182DF8370022A5FC /* SaliencyCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaliencyCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C139350C182DF8370022A5FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C1393514182DF8370022A5FC /* SaliencyCameraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SaliencyCameraTests-Info.plist"; sourceTree = "<group>"; };
 		C1393516182DF8370022A5FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C1393518182DF8370022A5FC /* SaliencyCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaliencyCameraTests.m; sourceTree = "<group>"; };
+		C1393524182DF9820022A5FC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../ios/opencv2.framework; sourceTree = "<group>"; };
+		C1393527182DFD430022A5FC /* ImageConv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageConv.h; sourceTree = "<group>"; };
+		C1393528182DFD430022A5FC /* ImageConv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageConv.mm; sourceTree = "<group>"; };
+		C1393529182DFD430022A5FC /* Saliency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Saliency.h; sourceTree = "<group>"; };
+		C139352A182DFD430022A5FC /* Saliency.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Saliency.mm; sourceTree = "<group>"; };
+		C139352B182DFD430022A5FC /* SaliencyDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaliencyDef.h; sourceTree = "<group>"; };
+		C139352D182DFD430022A5FC /* disjoint-set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "disjoint-set.h"; sourceTree = "<group>"; };
+		C139352E182DFD430022A5FC /* segment-graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "segment-graph.h"; sourceTree = "<group>"; };
+		C139352F182DFD430022A5FC /* segment-image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "segment-image.h"; sourceTree = "<group>"; };
+		C1393530182DFD430022A5FC /* segment-image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "segment-image.mm"; sourceTree = "<group>"; };
+		C1393534182E01E90022A5FC /* openCVtypes_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = openCVtypes_c.h; sourceTree = "<group>"; };
+		C1393544182E08A80022A5FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C1393546182E08D10022A5FC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		C1393548182E106E0022A5FC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C139354A182E12960022A5FC /* resultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resultViewController.h; sourceTree = "<group>"; };
+		C139354B182E12960022A5FC /* resultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = resultViewController.mm; sourceTree = "<group>"; };
+		C139354E182E1E730022A5FC /* camera_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_30.png; sourceTree = "<group>"; };
+		C1393550182E21A00022A5FC /* rotate_camera2_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate_camera2_30.png; sourceTree = "<group>"; };
+		C1393554182F46D20022A5FC /* UIImage+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utility.h"; sourceTree = "<group>"; };
+		C1393555182F46D20022A5FC /* UIImage+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utility.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1393549182E106E0022A5FC /* CoreMedia.framework in Frameworks */,
+				C1393547182E08D10022A5FC /* CoreImage.framework in Frameworks */,
+				C1393545182E08A80022A5FC /* AVFoundation.framework in Frameworks */,
+				C1393525182DF9820022A5FC /* opencv2.framework in Frameworks */,
 				C13934F0182DF8370022A5FC /* CoreGraphics.framework in Frameworks */,
 				C13934F2182DF8370022A5FC /* UIKit.framework in Frameworks */,
 				C13934EE182DF8370022A5FC /* Foundation.framework in Frameworks */,
@@ -82,6 +117,7 @@
 		C13934E1182DF8370022A5FC = {
 			isa = PBXGroup;
 			children = (
+				C1393557182F6E990022A5FC /* Images */,
 				C13934F3182DF8370022A5FC /* SaliencyCamera */,
 				C1393512182DF8370022A5FC /* SaliencyCameraTests */,
 				C13934EC182DF8370022A5FC /* Frameworks */,
@@ -101,6 +137,10 @@
 		C13934EC182DF8370022A5FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1393548182E106E0022A5FC /* CoreMedia.framework */,
+				C1393546182E08D10022A5FC /* CoreImage.framework */,
+				C1393544182E08A80022A5FC /* AVFoundation.framework */,
+				C1393524182DF9820022A5FC /* opencv2.framework */,
 				C13934ED182DF8370022A5FC /* Foundation.framework */,
 				C13934EF182DF8370022A5FC /* CoreGraphics.framework */,
 				C13934F1182DF8370022A5FC /* UIKit.framework */,
@@ -112,12 +152,16 @@
 		C13934F3182DF8370022A5FC /* SaliencyCamera */ = {
 			isa = PBXGroup;
 			children = (
+				C1393553182F46B50022A5FC /* UIImageUtility */,
+				C1393526182DFD320022A5FC /* SaliencyMap */,
 				C13934FC182DF8370022A5FC /* AppDelegate.h */,
 				C13934FD182DF8370022A5FC /* AppDelegate.m */,
 				C13934FF182DF8370022A5FC /* Main.storyboard */,
 				C1393502182DF8370022A5FC /* ViewController.h */,
-				C1393503182DF8370022A5FC /* ViewController.m */,
+				C1393503182DF8370022A5FC /* ViewController.mm */,
 				C1393505182DF8370022A5FC /* Images.xcassets */,
+				C139354A182E12960022A5FC /* resultViewController.h */,
+				C139354B182E12960022A5FC /* resultViewController.mm */,
 				C13934F4182DF8370022A5FC /* Supporting Files */,
 			);
 			path = SaliencyCamera;
@@ -150,6 +194,49 @@
 				C1393515182DF8370022A5FC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1393526182DFD320022A5FC /* SaliencyMap */ = {
+			isa = PBXGroup;
+			children = (
+				C1393527182DFD430022A5FC /* ImageConv.h */,
+				C1393528182DFD430022A5FC /* ImageConv.mm */,
+				C1393529182DFD430022A5FC /* Saliency.h */,
+				C139352A182DFD430022A5FC /* Saliency.mm */,
+				C139352B182DFD430022A5FC /* SaliencyDef.h */,
+				C139352C182DFD430022A5FC /* Segmentation */,
+				C1393534182E01E90022A5FC /* openCVtypes_c.h */,
+			);
+			name = SaliencyMap;
+			sourceTree = "<group>";
+		};
+		C139352C182DFD430022A5FC /* Segmentation */ = {
+			isa = PBXGroup;
+			children = (
+				C139352D182DFD430022A5FC /* disjoint-set.h */,
+				C139352E182DFD430022A5FC /* segment-graph.h */,
+				C139352F182DFD430022A5FC /* segment-image.h */,
+				C1393530182DFD430022A5FC /* segment-image.mm */,
+			);
+			path = Segmentation;
+			sourceTree = "<group>";
+		};
+		C1393553182F46B50022A5FC /* UIImageUtility */ = {
+			isa = PBXGroup;
+			children = (
+				C1393554182F46D20022A5FC /* UIImage+Utility.h */,
+				C1393555182F46D20022A5FC /* UIImage+Utility.m */,
+			);
+			name = UIImageUtility;
+			sourceTree = "<group>";
+		};
+		C1393557182F6E990022A5FC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C139354E182E1E730022A5FC /* camera_30.png */,
+				C1393550182E21A00022A5FC /* rotate_camera2_30.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +317,9 @@
 			files = (
 				C1393506182DF8370022A5FC /* Images.xcassets in Resources */,
 				C13934F8182DF8370022A5FC /* InfoPlist.strings in Resources */,
+				C1393551182E21A00022A5FC /* rotate_camera2_30.png in Resources */,
 				C1393501182DF8370022A5FC /* Main.storyboard in Resources */,
+				C139354F182E1E730022A5FC /* camera_30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1393504182DF8370022A5FC /* ViewController.m in Sources */,
+				C139354C182E12960022A5FC /* resultViewController.mm in Sources */,
+				C1393504182DF8370022A5FC /* ViewController.mm in Sources */,
+				C1393533182DFD430022A5FC /* segment-image.mm in Sources */,
+				C1393531182DFD430022A5FC /* ImageConv.mm in Sources */,
+				C1393556182F46D20022A5FC /* UIImage+Utility.m in Sources */,
+				C1393532182DFD430022A5FC /* Saliency.mm in Sources */,
 				C13934FE182DF8370022A5FC /* AppDelegate.m in Sources */,
 				C13934FA182DF8370022A5FC /* main.m in Sources */,
 			);
@@ -378,9 +472,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RyotaKATOH/ios,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaliencyCamera/SaliencyCamera-Prefix.pch";
 				INFOPLIST_FILE = "SaliencyCamera/SaliencyCamera-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -391,9 +490,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RyotaKATOH/ios,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaliencyCamera/SaliencyCamera-Prefix.pch";
 				INFOPLIST_FILE = "SaliencyCamera/SaliencyCamera-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

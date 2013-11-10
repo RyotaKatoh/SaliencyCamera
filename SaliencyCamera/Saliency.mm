@@ -94,7 +94,7 @@ UIImage* Saliency::getSaliencyMap(const UIImage *srcImage)
 	return [imgConv CvMatToUIImage:outImageMat];
 #endif
 	
-	[imgConv dealloc];
+	//[imgConv dealloc];
 }
 
 int Saliency::PrintVector(FILE *f, const vecD &v, const string &name, int maxNum)

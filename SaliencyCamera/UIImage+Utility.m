@@ -10,4 +10,12 @@
 
 @implementation UIImage (Utility)
 
+#pragma comment リサイズ関数を記述
+- (UIImage *)resize:(CGRect)targetFrame{
+
+    
+    return self;
+    
+}
+
 @end

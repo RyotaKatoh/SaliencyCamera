@@ -12,6 +12,7 @@
 #include "SaliencyDef.h"
 #include "Segmentation/segment-image.h"
 #import "ImageConv.h"
+#include "openCVtypes_c.h"
 
 using namespace cv;
 
