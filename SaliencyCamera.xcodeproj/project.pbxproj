@@ -33,6 +33,7 @@
 		C1393551182E21A00022A5FC /* rotate_camera2_30.png in Resources */ = {isa = PBXBuildFile; fileRef = C1393550182E21A00022A5FC /* rotate_camera2_30.png */; };
 		C1393556182F46D20022A5FC /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = C1393555182F46D20022A5FC /* UIImage+Utility.m */; };
 		C1393559182FE6690022A5FC /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393558182FE6690022A5FC /* AssetsLibrary.framework */; };
+		C139355D183283860022A5FC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C139355C183283860022A5FC /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		C1393554182F46D20022A5FC /* UIImage+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utility.h"; sourceTree = "<group>"; };
 		C1393555182F46D20022A5FC /* UIImage+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utility.m"; sourceTree = "<group>"; };
 		C1393558182FE6690022A5FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C139355C183283860022A5FC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C139355D183283860022A5FC /* iAd.framework in Frameworks */,
 				C1393559182FE6690022A5FC /* AssetsLibrary.framework in Frameworks */,
 				C1393549182E106E0022A5FC /* CoreMedia.framework in Frameworks */,
 				C1393547182E08D10022A5FC /* CoreImage.framework in Frameworks */,
@@ -140,6 +143,7 @@
 		C13934EC182DF8370022A5FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C139355C183283860022A5FC /* iAd.framework */,
 				C1393558182FE6690022A5FC /* AssetsLibrary.framework */,
 				C1393548182E106E0022A5FC /* CoreMedia.framework */,
 				C1393546182E08D10022A5FC /* CoreImage.framework */,

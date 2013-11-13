@@ -32,7 +32,9 @@ UIImage* Saliency::getSaliencyMap(const UIImage *srcImage)
 	imgConv = [[ImageConv alloc] init];
 	
 #ifdef UIImage
-	srcImageMat = imread(srcImage);
+	
+    srcImageMat = imread(srcImage);
+    
 #else
 	/* convert UIImage to Mat */
 	DLOG(@"conv");
@@ -42,6 +44,13 @@ UIImage* Saliency::getSaliencyMap(const UIImage *srcImage)
 	DLOG(@"%d, %d %d %d\n", srcImageMat.rows, srcImageMat.cols, srcImageMat.channels(), srcImageMat.rows * srcImageMat.cols);
 	outImageMat = srcImageMat;
 	outImageMat.convertTo(outImageMat, CV_8UC3);
+    
+    /* resize srcImageMat to half size */
+    Mat srcTwiceImageMat = srcImageMat;
+    resize(srcTwiceImageMat, srcImageMat, cv::Size() , 0.5, 0.5);
+    Mat tempTwiceMat;
+    cvtColor(srcTwiceImageMat, tempTwiceMat, CV_RGB2GRAY);
+    
 	cvtColor(srcImageMat, tempMat, CV_RGB2GRAY);
 	
 	srcImageMat.convertTo(srcImageMat, CV_32FC3, 1.0/255);
@@ -49,8 +58,10 @@ UIImage* Saliency::getSaliencyMap(const UIImage *srcImage)
 	saliencyMapMat.convertTo(saliencyMapMat, CV_8UC3);
 	
 	long total = 0;
-	total = 128;
-	//	for(int y = 0; y < saliencyMapMat.rows; y++){
+	//total = 128;
+	total = 140;
+    
+    //	for(int y = 0; y < saliencyMapMat.rows; y++){
 	//		for(int x = 0; x < saliencyMapMat.cols; x++){
 	//			for(int c = 0; c < saliencyMapMat.channels(); c++){
 	//				total = total + saliencyMapMat.data[ (y * saliencyMapMat.cols + x) * saliencyMapMat.channels() + c ];
@@ -76,9 +87,13 @@ UIImage* Saliency::getSaliencyMap(const UIImage *srcImage)
 	for(int y = 0; y < outImageMat.rows; y++){
 		for(int x = 0; x < outImageMat.cols; x++){
 			for(int c = 0; c < outImageMat.channels(); c++){
-				if (saliencyMapMat.data[y * saliencyMapMat.cols + x] == 0U) {
-					outImageMat.data[ (y * outImageMat.cols + x) * outImageMat.channels() + c ] = tempMat.data[ y * tempMat.cols + x];
-				}
+                int x_2 = x / 2; int y_2 = y / 2;
+                
+				if (saliencyMapMat.data[y_2 * saliencyMapMat.cols + x_2] == 0U) {
+					//outImageMat.data[ (y * outImageMat.cols + x) * outImageMat.channels() + c ] = tempMat.data[ y_2 * tempMat.cols + x_2];
+                    outImageMat.data[ (y * outImageMat.cols + x) * outImageMat.channels() + c ] = tempTwiceMat.data[ y * tempTwiceMat.cols + x];
+                }
+                
 			}
 		}
 	}
