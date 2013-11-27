@@ -63,18 +63,20 @@
 //    NSLog(@"outSize: %f, %f", saliencyImage.size.width, saliencyImage.size.height);
     
     Saliency saliency;
-    saliencyImage = saliency.getSaliencyMap(resultImage);
-
+    //saliencyImage = saliency.getSaliencyMap(resultImage);
+    //saliencyImage = saliency.getLabelImageTest(resultImage);
+    resultImage = [resultImage resize:resultImageView.frame];
+    
     if(fromCamera){
-        //UIImage *rotateImage;
-        saliencyImage = [UIImage imageWithCGImage:saliencyImage.CGImage scale:saliencyImage.scale orientation:UIImageOrientationRight];
+
+        //resultImage = [resultImage resize:resultImageView.frame];
+        saliencyImage = saliency.getLabelImageTest(resultImage);
         
-        saliencyImage = [saliencyImage resize:resultImageView.frame];
         
         resultImageView.image = saliencyImage;
     }
     else{
-        
+        saliencyImage = saliency.getLabelImageTest(resultImage);
         resultImageView.image = saliencyImage;
     }
     [self hideActivityIndicator];

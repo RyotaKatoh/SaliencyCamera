@@ -34,6 +34,7 @@
 		C1393556182F46D20022A5FC /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = C1393555182F46D20022A5FC /* UIImage+Utility.m */; };
 		C1393559182FE6690022A5FC /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393558182FE6690022A5FC /* AssetsLibrary.framework */; };
 		C139355D183283860022A5FC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C139355C183283860022A5FC /* iAd.framework */; };
+		C1393587183E5B240022A5FC /* openCVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393586183E5B240022A5FC /* openCVUtility.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,9 @@
 		C1393555182F46D20022A5FC /* UIImage+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utility.m"; sourceTree = "<group>"; };
 		C1393558182FE6690022A5FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C139355C183283860022A5FC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		C139355E1833B2060022A5FC /* Labeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labeling.h; sourceTree = "<group>"; };
+		C1393585183E5B240022A5FC /* openCVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openCVUtility.h; sourceTree = "<group>"; };
+		C1393586183E5B240022A5FC /* openCVUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = openCVUtility.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +216,11 @@
 				C1393529182DFD430022A5FC /* Saliency.h */,
 				C139352A182DFD430022A5FC /* Saliency.mm */,
 				C139352B182DFD430022A5FC /* SaliencyDef.h */,
+				C139355E1833B2060022A5FC /* Labeling.h */,
 				C139352C182DFD430022A5FC /* Segmentation */,
 				C1393534182E01E90022A5FC /* openCVtypes_c.h */,
+				C1393585183E5B240022A5FC /* openCVUtility.h */,
+				C1393586183E5B240022A5FC /* openCVUtility.mm */,
 			);
 			name = SaliencyMap;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 			files = (
 				C139354C182E12960022A5FC /* resultViewController.mm in Sources */,
 				C1393504182DF8370022A5FC /* ViewController.mm in Sources */,
+				C1393587183E5B240022A5FC /* openCVUtility.mm in Sources */,
 				C1393533182DFD430022A5FC /* segment-image.mm in Sources */,
 				C1393531182DFD430022A5FC /* ImageConv.mm in Sources */,
 				C1393556182F46D20022A5FC /* UIImage+Utility.m in Sources */,

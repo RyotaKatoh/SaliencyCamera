@@ -13,6 +13,7 @@
 #include "Segmentation/segment-image.h"
 #import "ImageConv.h"
 #include "openCVtypes_c.h"
+#include "Labeling.h"
 
 using namespace cv;
 
@@ -21,10 +22,16 @@ class Saliency
 public:
 	Saliency();
 	~Saliency();
-	
+
+    // Get Labeling Image
+    static Mat getSingleAreaSaliencyMap(const Mat &img3f);
+	UIImage *getLabelImageTest(const UIImage *srcImage);
+    
 	// Get saliency values of a group of images.
 	// Input image names and directory name for saving saliency maps.
 	UIImage* getSaliencyMap(const UIImage *srcImage);
+    Mat getSaliencyMapMat(const UIImage *srcImage,float resizeRate);
+    Mat getOutputImageMat(const Mat &img3f,const Mat saliencyMap, float resizeRate);
 	
 	// Frequency Tuned [1].
 	static Mat GetFT(const Mat &img3f);

@@ -18,14 +18,14 @@
 @synthesize rotateCameraButton;
 @synthesize openPhotoLibraryButton;
 
-- (void)setButtonUI:(UIButton *)button{
+- (void)setButtonUI:(UIButton *)button buttonColor:(UIColor *)color{
     button.titleLabel.textColor = [UIColor whiteColor];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [button.layer setBackgroundColor:[[UIColor orangeColor] CGColor]]; //背景色設定
+    [button.layer setBackgroundColor:[color CGColor]]; //背景色設定
     [button setTitleShadowColor:[UIColor grayColor] forState:UIControlStateNormal]; //文字の影色設定
     button.titleLabel.shadowOffset = CGSizeMake( 1, 1 ); //影の位置設定
     [[button layer] setCornerRadius:button.frame.size.width/2];  //角丸設定
-    [[button layer] setBorderColor:[[UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0] CGColor]];  //枠線色設定
+    [[button layer] setBorderColor:[[UIColor whiteColor] CGColor]];  //枠線色設定
     [[button layer] setBorderWidth:1.5f];  //枠線幅設定
 }
 
@@ -35,9 +35,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // set button UI
-    [self setButtonUI:shutterButton];
-    [self setButtonUI:rotateCameraButton];
-    [self setButtonUI:openPhotoLibraryButton];
+    [self setButtonUI:shutterButton buttonColor:[UIColor colorWithRed:0.596 green:0.984 blue:0.596 alpha:1.0]];
+    [self setButtonUI:rotateCameraButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
+    [self setButtonUI:openPhotoLibraryButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
     
     //initialize
     isSelectedOpenPhotoLibrary = false;
