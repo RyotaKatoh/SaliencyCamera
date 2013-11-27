@@ -50,33 +50,21 @@
 
 - (void)runCreatingSaliencyMap{
     
-//    Saliency saliency;
-//    CGRect halfFrame = resultImageView.frame;
-//    halfFrame.size.width = halfFrame.size.width / 2;
-//    halfFrame.size.height= halfFrame.size.height/ 2;
-//    UIImage *srcImage = [resultImage resize:halfFrame];
-//    NSLog(@"srcSize: %f, %f", srcImage.size.width, srcImage.size.height);
-//    
-//    saliencyImage = saliency.getSaliencyMap(srcImage);
-//    
-//    //saliencyImage = [saliencyImage resize:resultImageView.frame];
-//    NSLog(@"outSize: %f, %f", saliencyImage.size.width, saliencyImage.size.height);
+
     
     Saliency saliency;
-    //saliencyImage = saliency.getSaliencyMap(resultImage);
-    //saliencyImage = saliency.getLabelImageTest(resultImage);
     resultImage = [resultImage resize:resultImageView.frame];
     
     if(fromCamera){
 
         //resultImage = [resultImage resize:resultImageView.frame];
-        saliencyImage = saliency.getLabelImageTest(resultImage);
+        saliencyImage = saliency.getSaliencyImage(resultImage);
         
         
         resultImageView.image = saliencyImage;
     }
     else{
-        saliencyImage = saliency.getLabelImageTest(resultImage);
+        saliencyImage = saliency.getSaliencyImage(resultImage);
         resultImageView.image = saliencyImage;
     }
     [self hideActivityIndicator];

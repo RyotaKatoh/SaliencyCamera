@@ -23,8 +23,7 @@ private:
     
 public:
     
-    Mat getWatershedImage(const Mat &input);
-    
+
 };
 
 #endif /* openCVUtility.h */
