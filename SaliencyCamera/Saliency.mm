@@ -46,7 +46,7 @@ UIImage* Saliency::getSaliencyImage(const UIImage *srcImage){
     
     Mat singleSaliencyMap = getSingleAreaSaliencyMap(saliencyMapMat);
     
-    Mat outImage = getOutputImageMat(srcImageMat, singleSaliencyMap, resizeRate);
+    Mat outImage = runMozicFilter(srcImageMat, singleSaliencyMap, resizeRate);
     
     return [imgConv CvMatToUIImage:outImage];
     
