@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
     saveImageButton.enabled = NO;
     [self showActivityIndicator];
 
@@ -167,10 +169,64 @@
     
 }
 
+#pragma mark Social Framework
+
+- (void) postToTwitter{
+    SLComposeViewController *slComposeViewControllse = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    //[slComposeViewControllse setInitialText:@"posted by Spite Camera"];
+    [slComposeViewControllse addImage:saliencyImage];
+    [self presentViewController:slComposeViewControllse animated:YES completion:nil];
+    
+    
+}
+
+- (void) postToFacebook{
+    SLComposeViewController *slComposeViewControllse = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    //[slComposeViewControllse setInitialText:@"posted by Spite Camera"];
+    [slComposeViewControllse addImage:saliencyImage];
+    [self presentViewController:slComposeViewControllse animated:YES completion:nil];
+    
+}
+
+#pragma mark actionSheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    switch (buttonIndex) {
+        case 0:
+            [self saveImageToPhotoLibrary:saliencyImage];
+            
+            break;
+            
+        case 1:
+            [self postToTwitter];
+            break;
+            
+        case 2:
+            [self postToFacebook];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark IBAction
 
 - (IBAction)saveImage:(id)sender {
-    [self saveImageToPhotoLibrary:saliencyImage];
+    //[self saveImageToPhotoLibrary:saliencyImage];
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc]init];
+    
+    sheet.delegate = self;
+    
+    [sheet addButtonWithTitle:@"Save to Camera Roll"];
+    [sheet addButtonWithTitle:@"Post to Twitter"];
+    [sheet addButtonWithTitle:@"Post to Facebook"];
+    [sheet addButtonWithTitle:@"Cancel"];
+    
+    sheet.cancelButtonIndex = 3;
+    [sheet showInView:self.view];
 
 }
 @end

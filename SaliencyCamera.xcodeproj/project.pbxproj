@@ -35,6 +35,8 @@
 		C1393559182FE6690022A5FC /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1393558182FE6690022A5FC /* AssetsLibrary.framework */; };
 		C139355D183283860022A5FC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C139355C183283860022A5FC /* iAd.framework */; };
 		C1393587183E5B240022A5FC /* openCVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393586183E5B240022A5FC /* openCVUtility.mm */; };
+		C14DE51E184644FF00479F9E /* photoLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = C14DE51D184644FF00479F9E /* photoLibrary.png */; };
+		C14DE5231849D5B400479F9E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14DE5221849D5B400479F9E /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		C139355E1833B2060022A5FC /* Labeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labeling.h; sourceTree = "<group>"; };
 		C1393585183E5B240022A5FC /* openCVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openCVUtility.h; sourceTree = "<group>"; };
 		C1393586183E5B240022A5FC /* openCVUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = openCVUtility.mm; sourceTree = "<group>"; };
+		C14DE51D184644FF00479F9E /* photoLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoLibrary.png; sourceTree = "<group>"; };
+		C14DE52018464A7700479F9E /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		C14DE5221849D5B400479F9E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14DE5231849D5B400479F9E /* Social.framework in Frameworks */,
 				C139355D183283860022A5FC /* iAd.framework in Frameworks */,
 				C1393559182FE6690022A5FC /* AssetsLibrary.framework in Frameworks */,
 				C1393549182E106E0022A5FC /* CoreMedia.framework in Frameworks */,
@@ -147,6 +153,8 @@
 		C13934EC182DF8370022A5FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C14DE5221849D5B400479F9E /* Social.framework */,
+				C14DE52018464A7700479F9E /* Twitter.framework */,
 				C139355C183283860022A5FC /* iAd.framework */,
 				C1393558182FE6690022A5FC /* AssetsLibrary.framework */,
 				C1393548182E106E0022A5FC /* CoreMedia.framework */,
@@ -250,6 +258,7 @@
 			children = (
 				C139354E182E1E730022A5FC /* camera_30.png */,
 				C1393550182E21A00022A5FC /* rotate_camera2_30.png */,
+				C14DE51D184644FF00479F9E /* photoLibrary.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14DE51E184644FF00479F9E /* photoLibrary.png in Resources */,
 				C1393506182DF8370022A5FC /* Images.xcassets in Resources */,
 				C13934F8182DF8370022A5FC /* InfoPlist.strings in Resources */,
 				C1393551182E21A00022A5FC /* rotate_camera2_30.png in Resources */,
@@ -580,6 +590,7 @@
 				C139351E182DF8370022A5FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C139351F182DF8370022A5FC /* Build configuration list for PBXNativeTarget "SaliencyCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +599,7 @@
 				C1393521182DF8370022A5FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Social/Social.h>
 #include "Saliency.h"
 #import "UIImage+Utility.h"
 
-@interface resultViewController : UIViewController{
+@interface resultViewController : UIViewController<UIActionSheetDelegate>{
 
     UIImage *saliencyImage;
 @public
