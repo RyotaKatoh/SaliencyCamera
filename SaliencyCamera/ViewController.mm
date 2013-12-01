@@ -15,8 +15,7 @@
 @implementation ViewController
 @synthesize imageView;
 @synthesize shutterButton;
-@synthesize rotateCameraButton;
-@synthesize openPhotoLibraryButton;
+
 
 - (void)setButtonUI:(UIButton *)button buttonColor:(UIColor *)color{
     button.titleLabel.textColor = [UIColor whiteColor];
@@ -36,8 +35,8 @@
     
     /* set button UI */
     [self setButtonUI:shutterButton buttonColor:[UIColor colorWithRed:0.596 green:0.984 blue:0.596 alpha:1.0]];
-    [self setButtonUI:rotateCameraButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
-    [self setButtonUI:openPhotoLibraryButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
+//    [self setButtonUI:rotateCameraButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
+//    [self setButtonUI:openPhotoLibraryButton buttonColor:[UIColor colorWithRed:0.392 green:0.584 blue:0.929 alpha:1.0]];
     
     /* set navigation bar color */
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.204 green:0.667 blue:0.863 alpha:1.0];

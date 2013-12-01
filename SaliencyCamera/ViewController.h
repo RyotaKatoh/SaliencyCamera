@@ -33,8 +33,7 @@
 
 @property (assign, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign, nonatomic) IBOutlet UIButton *shutterButton;
-@property (assign, nonatomic) IBOutlet UIButton *rotateCameraButton;
-@property (assign, nonatomic) IBOutlet UIButton *openPhotoLibraryButton;
+
 
 - (IBAction)executeSaliency:(id)sender;
 - (IBAction)rotateCamera:(id)sender;
