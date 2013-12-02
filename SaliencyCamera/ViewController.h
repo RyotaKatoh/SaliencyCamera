@@ -13,6 +13,8 @@
 
 #include "Saliency.h"
 
+#define DEFINE_IPHONE_SIMULATOR
+
 @interface ViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>{
 
     BOOL isUsingFrontFacingCamera;

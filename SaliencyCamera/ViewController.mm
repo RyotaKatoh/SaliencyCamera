@@ -46,7 +46,12 @@
     /* initialize */
     isSelectedOpenPhotoLibrary = false;
     
+#ifndef DEFINE_IPHONE_SIMULATOR
     [self setupAVCapture];
+#else
+    self.shutterButton.hidden = YES;
+    
+#endif
     
 }
 
