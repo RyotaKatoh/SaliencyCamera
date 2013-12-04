@@ -221,8 +221,8 @@
     sheet.delegate = self;
     
     [sheet addButtonWithTitle:@"Save to Camera Roll"];
-    [sheet addButtonWithTitle:@"Post to Twitter"];
-    [sheet addButtonWithTitle:@"Post to Facebook"];
+    [sheet addButtonWithTitle:@"Twitter"];
+    [sheet addButtonWithTitle:@"Facebook"];
     [sheet addButtonWithTitle:@"Cancel"];
     
     sheet.cancelButtonIndex = 3;
