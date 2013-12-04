@@ -15,6 +15,8 @@
 #include "openCVtypes_c.h"
 #include "Labeling.h"
 
+#define PI 6*asin( 0.5 )
+
 using namespace cv;
 
 class Saliency
@@ -35,6 +37,8 @@ public:
     // OutputImageFilter
     Mat runWhiteFilter(const Mat &img3f,const Mat saliencyMap, float resizeRate);
     Mat runMozicFilter(const Mat &img3f,const Mat saliencyMap, float resizeRate);
+    Mat runChaosFilter(const Mat &img3f, const Mat saliencyMap, float resizeRate);
+    Mat runSinFilter(const Mat &img3f, const Mat saliencyMap, float resizeRate);
 	
 	// Frequency Tuned [1].
 	static Mat GetFT(const Mat &img3f);

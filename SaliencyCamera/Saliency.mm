@@ -46,6 +46,7 @@ UIImage* Saliency::getSaliencyImage(const UIImage *srcImage){
     
     Mat singleSaliencyMap = getSingleAreaSaliencyMap(saliencyMapMat);
     
+    //Mat outImage = runMozicFilter(srcImageMat, singleSaliencyMap, resizeRate);
     Mat outImage = runMozicFilter(srcImageMat, singleSaliencyMap, resizeRate);
     
     return [imgConv CvMatToUIImage:outImage];
@@ -282,6 +283,138 @@ Mat Saliency::runMozicFilter(const cv::Mat &img3f, const Mat saliencyMap, float 
     return outImageMat;
 }
 
+Mat Saliency::runChaosFilter(const cv::Mat &img3f, const cv::Mat saliencyMap, float resizeRate){
+
+    Mat outImageMat = img3f;
+	outImageMat.convertTo(outImageMat, CV_8UC3);
+    
+    
+    int squareSize = 16;
+    cout<<"cols:"<<outImageMat.cols<<endl;
+    cout<<"rows:"<<outImageMat.rows<<endl;
+    
+    int numSquareX = outImageMat.cols / squareSize + 1;
+    int numSquareY = outImageMat.rows / squareSize + 1;
+    
+    
+    /* initialize quantize flag */
+    BOOL **quantizeFlag;
+    quantizeFlag = new BOOL *[numSquareY];
+    for(int i=0;i<numSquareY;i++){
+        
+        quantizeFlag[i] = new BOOL [numSquareX];
+    }
+    for(int y=0;y<numSquareY;y++){
+        
+        for(int x=0;x<numSquareX;x++){
+            
+            quantizeFlag[y][x] = false;
+        }
+    }
+    
+    /* get quantize flag */
+    int resizedX, resizedY;
+    for(int y = 0; y < outImageMat.rows; y++){
+		for(int x = 0; x < outImageMat.cols; x++){
+            resizedX = x*resizeRate; resizedY = y*resizeRate;
+            
+            if (saliencyMap.data[resizedY * saliencyMap.cols + resizedX] == 255U) {
+                
+                quantizeFlag[y / squareSize][x / squareSize] = true;
+                
+            }
+            
+			
+		}
+	}
+    
+    int rgbFlag = 0; // 0:R 1:G 2:B
+    
+    unsigned char grayColor;
+    
+    /* chaos filter around saliency map */
+    for(int y=0;y<numSquareY-1;y++){
+        for(int x=0;x<numSquareX-1;x++){
+            
+            grayColor =  outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() ] * 0.3 +  outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + 1 ] * 0.59 +  outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + 2 ] * 0.11;
+            
+            if(!quantizeFlag[y][x]){
+                for(int Y=0;Y<squareSize;Y++){
+                    for(int X=0;X<squareSize;X++){
+                        
+                        for(int c = 0; c < outImageMat.channels(); c++){
+                            
+                            
+//                            outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + c ] ;
+//                            
+//                            if(c == rgbFlag){
+//                            
+//                                outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = randomColor;
+//                            }
+                            outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = grayColor;
+                            
+                            
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    /* chaos filter end */
+    
+    
+    
+    for(int i=0;i<numSquareY;i++){
+        if(quantizeFlag[i])
+            delete [] quantizeFlag[i];
+    }
+    delete [] quantizeFlag;
+    
+    
+    return outImageMat;
+}
+
+Mat Saliency::runSinFilter(const cv::Mat &img3f, const cv::Mat saliencyMap, float resizeRate){
+
+    Mat outImageMat = img3f;
+	outImageMat.convertTo(outImageMat, CV_8UC3);
+    
+    
+    
+    /* get quantize flag */
+    int resizedX, resizedY;
+    
+    int sinX;
+    
+    for(int y = 0; y < outImageMat.rows; y++){
+		for(int x = 0; x < outImageMat.cols; x++){
+            resizedX = x*resizeRate; resizedY = y*resizeRate;
+            
+            if (saliencyMap.data[resizedY * saliencyMap.cols + resizedX] != 255U) {
+                
+                sinX = sin(2*PI / outImageMat.rows) * outImageMat.cols;
+                int deltaX = x + sinX;
+                if(deltaX >= outImageMat.cols){
+                
+                    deltaX -= outImageMat.cols;
+                }
+                for(int c=0;c<outImageMat.channels();c++){
+                    
+                    
+                    outImageMat.data[ (y * outImageMat.cols + x) * outImageMat.channels() + c ] = outImageMat.data[ (y * outImageMat.cols + deltaX) * outImageMat.channels() + c ];
+                }
+                
+                
+            }
+            
+			
+		}
+	}
+    
+
+    return outImageMat;
+}
 
 #pragma mark - Saliency map
 

@@ -37,6 +37,7 @@
 		C1393587183E5B240022A5FC /* openCVUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = C1393586183E5B240022A5FC /* openCVUtility.mm */; };
 		C14DE51E184644FF00479F9E /* photoLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = C14DE51D184644FF00479F9E /* photoLibrary.png */; };
 		C14DE5231849D5B400479F9E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14DE5221849D5B400479F9E /* Social.framework */; };
+		C14DE533184F6F7A00479F9E /* iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C14DE532184F6F7A00479F9E /* iPhone4.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		C14DE52E184B948D00479F9E /* SpiteCameraAppIcon@120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@120x120.png"; sourceTree = "<group>"; };
 		C14DE52F184B960600479F9E /* SpiteCameraAppIcon@57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@57x57.png"; sourceTree = "<group>"; };
 		C14DE530184B961800479F9E /* SpiteCameraAppIcon@114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@114x114.png"; sourceTree = "<group>"; };
+		C14DE532184F6F7A00479F9E /* iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone4.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				C13934FC182DF8370022A5FC /* AppDelegate.h */,
 				C13934FD182DF8370022A5FC /* AppDelegate.m */,
 				C13934FF182DF8370022A5FC /* Main.storyboard */,
+				C14DE532184F6F7A00479F9E /* iPhone4.storyboard */,
 				C1393502182DF8370022A5FC /* ViewController.h */,
 				C1393503182DF8370022A5FC /* ViewController.mm */,
 				C139354A182E12960022A5FC /* resultViewController.h */,
@@ -351,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C14DE533184F6F7A00479F9E /* iPhone4.storyboard in Resources */,
 				C14DE51E184644FF00479F9E /* photoLibrary.png in Resources */,
 				C1393506182DF8370022A5FC /* Images.xcassets in Resources */,
 				C13934F8182DF8370022A5FC /* InfoPlist.strings in Resources */,

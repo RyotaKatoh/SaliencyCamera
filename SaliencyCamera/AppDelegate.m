@@ -13,6 +13,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UIStoryboard *storyboard;
+    NSString *storyboardName;
+    
+    NSString *modelName = [[UIDevice currentDevice]model];
+    
+    
+    if(![modelName hasPrefix:@"iPad"]){
+    
+        CGRect rect = [[UIScreen mainScreen] bounds];
+        
+        if(rect.size.height == 480){
+    
+            storyboardName = @"iPhone4";
+            
+        }
+        else{
+        
+            storyboardName = @"Main";
+        }
+    }
+    else{
+        /* do not support iPad */
+        storyboardName = @"Main";
+    }
+    
+    storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    
+    UIViewController *mainViewController = [storyboard instantiateInitialViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = mainViewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
