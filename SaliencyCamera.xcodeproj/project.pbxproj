@@ -101,10 +101,10 @@
 		C14DE528184B8D8200479F9E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C14DE529184B8D9100479F9E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C14DE52C184B8E8A00479F9E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C14DE52E184B948D00479F9E /* SpiteCameraAppIcon@120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@120x120.png"; sourceTree = "<group>"; };
-		C14DE52F184B960600479F9E /* SpiteCameraAppIcon@57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@57x57.png"; sourceTree = "<group>"; };
-		C14DE530184B961800479F9E /* SpiteCameraAppIcon@114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpiteCameraAppIcon@114x114.png"; sourceTree = "<group>"; };
 		C14DE532184F6F7A00479F9E /* iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone4.storyboard; sourceTree = "<group>"; };
+		C14DE54318523D0800479F9E /* spiteCameraIcon2@57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spiteCameraIcon2@57x57.png"; sourceTree = "<group>"; };
+		C14DE54418523D1500479F9E /* spiteCameraIcon2@114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spiteCameraIcon2@114x114.png"; sourceTree = "<group>"; };
+		C14DE54618523D6C00479F9E /* spiteCameraIcon2@120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spiteCameraIcon2@120x120.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +141,9 @@
 		C13934E1182DF8370022A5FC = {
 			isa = PBXGroup;
 			children = (
-				C14DE530184B961800479F9E /* SpiteCameraAppIcon@114x114.png */,
-				C14DE52F184B960600479F9E /* SpiteCameraAppIcon@57x57.png */,
-				C14DE52E184B948D00479F9E /* SpiteCameraAppIcon@120x120.png */,
+				C14DE54618523D6C00479F9E /* spiteCameraIcon2@120x120.png */,
+				C14DE54418523D1500479F9E /* spiteCameraIcon2@114x114.png */,
+				C14DE54318523D0800479F9E /* spiteCameraIcon2@57x57.png */,
 				C14DE52C184B8E8A00479F9E /* Default-568h@2x.png */,
 				C14DE529184B8D9100479F9E /* Default@2x.png */,
 				C14DE528184B8D8200479F9E /* Default.png */,
@@ -512,7 +512,7 @@
 		C139351D182DF8370022A5FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,7 +531,7 @@
 		C139351E182DF8370022A5FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

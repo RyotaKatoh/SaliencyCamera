@@ -3,23 +3,25 @@
     {
       "idiom" : "iphone",
       "scale" : "1x",
-      "size" : "57x57"
+      "size" : "29x29"
     },
     {
+      "size" : "57x57",
       "idiom" : "iphone",
-      "scale" : "2x",
-      "size" : "57x57"
+      "filename" : "spiteCameraIcon2@57x57.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "spiteCameraIcon2@114x114.png",
+      "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SpiteCameraAppIcon@120x120.png",
+      "filename" : "spiteCameraIcon2@120x120.png",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "iphone",
-      "scale" : "1x",
-      "size" : "29x29"
     },
     {
       "idiom" : "iphone",
