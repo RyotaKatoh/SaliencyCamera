@@ -54,6 +54,21 @@
     
 #endif
     
+    /* iAD */
+    //adBanner.delegate = self;
+    
+    /* AdMob */
+    //bannerView = [[GADBannerView alloc]initWithAdSize:kGADAdSizeBanner];
+    bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait origin:CGPointMake(0.0, self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height -  50)];
+    
+    NSLog(@"size:%f, %f",self.view.bounds.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
+                  
+    bannerView.adUnitID = @"ca-app-pub-5314472979260723/8888397293";
+    bannerView.rootViewController = self;
+    [self.view addSubview:bannerView];
+    //[bannerView setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height - bannerView.bounds.size.height/2)];
+    
+    [bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)dealloc{
@@ -424,5 +439,18 @@ bail:
     [self openPhotoLibrary];
 }
 
+
+#pragma mark -ADVATIZEMENT
+    
+
+//- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+//
+//    adBanner.hidden = NO;
+//}
+//
+//- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+//
+//    adBanner.hidden = YES;
+//}
 
 @end

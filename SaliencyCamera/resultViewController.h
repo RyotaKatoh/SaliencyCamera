@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Social/Social.h>
+#import <iAd/iAd.h>
 #include "Saliency.h"
 #import "UIImage+Utility.h"
+#import "GADBannerView.h"
 
-@interface resultViewController : UIViewController<UIActionSheetDelegate>{
+@interface resultViewController : UIViewController<UIActionSheetDelegate, ADBannerViewDelegate>{
 
     UIImage *saliencyImage;
+    
+    GADBannerView *bannerView;
+    
 @public
     BOOL fromCamera;
 }

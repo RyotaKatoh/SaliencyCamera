@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <iAd/iAd.h>
 #import "resultViewController.h"
 #import "UIImage+Utility.h"
+#import "GADBannerView.h"
 
 #include "Saliency.h"
 
 //#define DEFINE_IPHONE_SIMULATOR
 
-@interface ViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>{
+@interface ViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate,ADBannerViewDelegate>{
 
     BOOL isUsingFrontFacingCamera;
     BOOL isSelectedOpenCamera;
@@ -31,11 +33,12 @@
     
     UIImage *photoLibraryImage;
     
+    //IBOutlet ADBannerView *adBanner;
+    GADBannerView *bannerView;
 }
 
 @property (assign, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign, nonatomic) IBOutlet UIButton *shutterButton;
-
 
 - (IBAction)executeSaliency:(id)sender;
 - (IBAction)rotateCamera:(id)sender;

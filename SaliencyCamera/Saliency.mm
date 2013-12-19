@@ -46,8 +46,8 @@ UIImage* Saliency::getSaliencyImage(const UIImage *srcImage){
     
     Mat singleSaliencyMap = getSingleAreaSaliencyMap(saliencyMapMat);
     
-    //Mat outImage = runMozicFilter(srcImageMat, singleSaliencyMap, resizeRate);
     Mat outImage = runMozicFilter(srcImageMat, singleSaliencyMap, resizeRate);
+    //Mat outImage = runWhiteFilter(srcImageMat, singleSaliencyMap, resizeRate);
     
     return [imgConv CvMatToUIImage:outImage];
     
@@ -138,7 +138,7 @@ Mat Saliency::getSaliencyMapMat(const UIImage *srcImage, float resizeRate){
 	saliencyMapMat.convertTo(saliencyMapMat, CV_8UC3);
 	
 	long total = 0;
-	total = 140;
+	total = 150;
 
 	
 	for(int y = 0; y < saliencyMapMat.rows; y++){
@@ -212,9 +212,24 @@ Mat Saliency::runMozicFilter(const cv::Mat &img3f, const Mat saliencyMap, float 
 	outImageMat.convertTo(outImageMat, CV_8UC3);
     
     
-    int squareSize = 16;
+    int squareSize = 4;
+    
+//    /* resize if image size is strange. */
+//    if(outImageMat.cols % squareSize != 0 || outImageMat.rows % squareSize != 0){
+//    
+//        int resizedCols = outImageMat.cols + outImageMat.cols % squareSize;
+//        int resizedRows = outImageMat.rows + outImageMat.rows % squareSize;
+//        
+//        Mat resizedMat;
+//        resize(outImageMat, resizedMat, cv::Size(),resizedCols / (float)outImageMat.cols, resizedRows / (float)outImageMat.rows);
+//        
+//        outImageMat = resizedMat;
+//    }
+    
     cout<<"cols:"<<outImageMat.cols<<endl;
     cout<<"rows:"<<outImageMat.rows<<endl;
+    
+    
     
     int numSquareX = outImageMat.cols / squareSize + 1;
     int numSquareY = outImageMat.rows / squareSize + 1;
@@ -245,22 +260,34 @@ Mat Saliency::runMozicFilter(const cv::Mat &img3f, const Mat saliencyMap, float 
                     
                     quantizeFlag[y / squareSize][x / squareSize] = true;
                     
+                    
                 }
                 
 			
 		}
 	}
     
+    unsigned char bitColor;
+    int bitColorRate = 64;
+    int maxDataSize  = outImageMat.cols * outImageMat.rows * outImageMat.channels();
+    int counter = 0;
     /* mozic filter around saliency map */
     for(int y=0;y<numSquareY;y++){
         for(int x=0;x<numSquareX;x++){
         
             if(quantizeFlag[y][x]){
+                counter++;
+                
                 for(int Y=0;Y<squareSize;Y++){
                     for(int X=0;X<squareSize;X++){
                         for(int c = 0; c < outImageMat.channels(); c++){
+                            if(((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c < maxDataSize){
                             
-                            outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + c ];
+                                bitColor = outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + c ] / bitColorRate;
+                                bitColor = bitColor * bitColorRate;
+                                outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = bitColor;
+                            //outImageMat.data[ ((y*squareSize + Y) * outImageMat.cols + (x*squareSize + X)) * outImageMat.channels() + c ] = (outImageMat.data[ (y*squareSize  * outImageMat.cols + x*squareSize ) * outImageMat.channels() + c ] / 8) * 8;
+                            }
                             
                         }
                     }
@@ -271,6 +298,7 @@ Mat Saliency::runMozicFilter(const cv::Mat &img3f, const Mat saliencyMap, float 
     }
     /* mozic filter end */
     
+    cout<<"counter:"<<counter<<endl;
 
     
     for(int i=0;i<numSquareY;i++){
